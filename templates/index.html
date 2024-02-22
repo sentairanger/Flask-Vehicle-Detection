@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>OpenVINO Vehicle Detection and Recognition</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.37.1" />
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div align="center">
+<form action="{{url_for('upload_file')}}" enctype="multipart/form-data" method="POST">
+   <input name="img" type="file">
+   <input type="submit" value="Upload" class="submit">
+</form>
+<form action="{{url_for('capture_image')}}" method="POST">
+   <input type="submit" value="Capture" class="submit">
+</form>
+<form action="{{url_for('detect')}}" method="POST">
+<input type="submit" value="Detect" class="submit">
+</form>
+</div> 
+{% if img %}
+<div align="center">
+<h1>Vehicle Detection</h1>
+<img src="{{img}}">
+{% else %}
+<h1 align="center">Vehicle Detected</h1>
+</div>
+{% endif %}
+</body>
+</html>
